@@ -11,6 +11,29 @@ Raspbian is also based on Debian.
 It is the default shell on Debian OS.
 
 
+## `chmod` and `chown`
+
+Make shell file executable:
+```
+chmod +x <filename>
+```
+
+Change owner user of file:
+```
+chown <userName> <filename>
+```
+
+Change owner group of file:
+```
+chown :<groupName> <filename>
+``` 
+
+Change both owner user and group of file:
+```
+chown <userName>:<groupName> <filename>
+```
+
+
 ## `apt` repository
 
 Debian maintains a list of links to repository that `apt-` or `apt-get` can
@@ -42,8 +65,25 @@ Also see `man sources.list` for details.
 
 ### Debian Repository
 
-https://aur.archlinux.org/packages/
+- https://aur.archlinux.org/packages/
 
 ### How apt works
 
-https://unix.stackexchange.com/questions/377736/how-does-apt-get-really-work
+Refs:
+- https://unix.stackexchange.com/questions/377736/how-does-apt-get-really-work
+
+### List of installed packages
+
+```
+dpkg -l
+```
+
+Refs:
+- https://www.howtoforge.com/linux-dpkg-command/
+
+
+## Check processor architecture
+
+```
+dpkg --print-architecture
+```
