@@ -67,6 +67,12 @@ Also see `man sources.list` for details.
 
 - https://aur.archlinux.org/packages/
 
+
+### List of apt repositories
+```
+grep ^[^#] /etc/apt/sources.list /etc/apt/sources.list.d/*
+```
+
 ### How apt works
 
 Refs:
