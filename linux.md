@@ -31,6 +31,7 @@ chown :<groupName> <filename>
 Change both owner user and group of file:
 ```
 chown <userName>:<groupName> <filename>
+chown -R <userName>:<groupName> <foldename>
 ```
 
 
@@ -82,6 +83,8 @@ Refs:
 
 ```
 dpkg -l
+
+dpkg --get-selections | grep python3-picamera
 ```
 
 Refs:
@@ -92,4 +95,17 @@ Refs:
 
 ```
 dpkg --print-architecture
+```
+
+## Date & Time
+
+```
+date
+date "+%H:%M:%S"
+```
+
+### Timezone
+```
+# set in 
+/etc/timezone
 ```
