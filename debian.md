@@ -156,6 +156,7 @@ Content of `/etc/apt/sources.list.d` folder is empty
 
 ### Debian apt Repositories
 
+- https://www.debian.org/distrib/packages
 - https://aur.archlinux.org/packages/
 
 
@@ -188,6 +189,16 @@ Refs:
 ### Web-based tool to search packages
 
 https://www.debian.org/distrib/packages
+
+### Command options
+
+`apt-get install <packageName> --no-install-recommends` - Do not consider recommended 
+packages as a dependency for installing. In addition to finding the package,
+the command also gathers the list required packages, recommended packages, and 
+suggested packages. The *required packages* are dependencies so their 
+installation is mandatory. The *recommended packages* will be installed by 
+default unless the `--no-install-recommends` is specified or turned off in the 
+`/etc/apt/apt.conf`. The *suggested packages* is not installed by default. 
 
 
 ## Check processor architecture
