@@ -4,6 +4,10 @@ Debian is an operating system and currently use the Linux kernel or the FreeBSD 
 Ubuntu is based on Debian; Linux Mint is based on Ubuntu.
 Raspbian is also based on Debian.
 
+## Using Windows 10 WSL to run Ubuntu
+
+Ref: https://linoxide.com/distros/how-install-ubuntu-windows-10/
+ 
 
 ## `bash`
 
