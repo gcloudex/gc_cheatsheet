@@ -12,4 +12,4 @@ library running in user space; there are many more such user space libraries.
 
 
 ## References
-- [The Linux Documetation Project](http://www.tldp.org/guides.html)
+- [The Linux Documentation Project](http://www.tldp.org/guides.html)

@@ -15,7 +15,83 @@ Ref: https://linoxide.com/distros/how-install-ubuntu-windows-10/
 It is the default shell on Debian OS.
 
 
-## `chmod` and `chown`
+## User and Group
+
+### Manager User
+
+- Find a user's UID or GID
+```
+id <username>
+# id
+id -u <username>
+
+# gid
+id -g <username>
+
+# all the groups a user belongs to
+id -G <username>
+
+# find all
+cat /etc/passwd
+cat /etc/group
+```
+
+- Modify user account
+```
+# add user to group
+usermod <username> -aG <groupname>
+```
+
+- Add user
+```
+# add user and create the home directory for the user
+# group with the same name also created
+useradd -m <username>
+useradd -m <username> -p <password>
+
+# add user with group; so that group of the same name NOT created
+useradd -m <username> -g <groupname>
+
+# add user BUT not create home directory, and not allowed to login
+useradd -M -L <username>
+
+# add user with a specific id; a group of SAME "name and id" is also created 
+useradd -M <username> -u 1883
+```
+
+- Add group
+```
+groupadd <groupname>
+cat /etc/group
+```
+
+- Delete user and group
+```
+# delete user from a group
+deluser <username> <groupname>
+
+# delete user with no home directory, no login
+userdel <username>
+
+# delete regular user with password, home dir, login, files, etc. 
+passwd -l <username>
+tar -zcvf /nas/backup/account/deleted/v/<username>.$uid.$now.tar.gz /home/<username/
+
+pgrep -u <username>
+ps -fp $(pgrep -u <username>)
+killall -KILL -u <username>
+find /var/spool/at/ -name "[^.]*" -type f -user <username> -delete
+crontab -r -u <username>
+lprm <username>
+find / -user <username> -print
+find / -user <username> -exec chown newUserName:newGroupName {} \;
+userdel -r <username>
+
+# delete group
+groupdel <groupname>
+```
+
+### `chmod` and `chown`
 
 Make shell file executable:
 ```
@@ -227,3 +303,29 @@ date "+%H:%M:%S"
 ## SSH & SCP
 
 See `rpi` repository - `connect_ssh_scp.md` file
+
+
+## Configure python program to run at boot
+
+Old school mechanism for starting python program, `svc.py` at boot:
+- add it to `/etc/rcc.local`
+- make sure `rc.local` runs at boot time
+- must be setup as root. 
+
+setup commands:
+```
+sudo chmod 755 /etc/rc.local
+sudo nano /etc/rc.local
+
+# in the editor; scroll to the bottom & add one line
+
+ifup eth0
+ 
+/usr/bin/python /home/svc.py &
+  
+exit 0
+
+# exit nano editor CTL-X
+
+sudo /etc/rc.local
+```

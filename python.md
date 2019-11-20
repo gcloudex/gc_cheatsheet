@@ -1,6 +1,6 @@
 # Python
 
-# Create `virtualenv` and `virtualenvwrapper`
+## Create `virtualenv` and `virtualenvwrapper`
 
 It's a good practice to use an isolated virtual environments for each Python 
 projects that need packages with different versions. `virtualenv` is a tool 
@@ -42,5 +42,31 @@ workon tfserving
 
 cd <home_directory>/zCodes/docker_tfserving_objdetect
 pip3 install -r requirements.txt
+```
+
+
+## Configure python program to run at boot
+
+Old school mechanism for starting python program, `svc.py` at boot:
+- add it to `/etc/rcc.local`
+- make sure `rc.local` runs at boot time
+- must be setup as root. 
+
+setup commands:
+```
+sudo chmod 755 /etc/rc.local
+sudo nano /etc/rc.local
+
+# in the editor; scroll to the bottom & add one line
+
+ifup eth0
+ 
+/usr/bin/python /home/svc.py &
+  
+exit 0
+
+# exit nano editor CTL-X
+
+sudo /etc/rc.local
 ```
 
