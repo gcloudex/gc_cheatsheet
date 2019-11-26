@@ -115,7 +115,20 @@ chown -R <userName>:<groupName> <foldename>
 ```
 
 
-## `apt` repository
+## `apt`
+
+### How apt works
+
+Refs:
+- https://unix.stackexchange.com/questions/377736/how-does-apt-get-really-work
+
+### Adding a repository
+
+Refs:
+- https://itsfoss.com/add-apt-repository-command-not-found/
+- https://tecadmin.net/add-apt-repository-ubuntu/
+
+### `apt` repository
 
 Debian maintains a list of links to repository that `apt-` or `apt-get` can
 download from. The list(s) is stored in a file `/etc/apt/sources.list`, and
@@ -255,16 +268,6 @@ dpkg --get-selections | grep python3-picamera
 Refs:
 - https://www.howtoforge.com/linux-dpkg-command/
 
-### How apt works
-
-Refs:
-- https://unix.stackexchange.com/questions/377736/how-does-apt-get-really-work
-
-### Adding a repository
-
-Refs:
-- https://itsfoss.com/add-apt-repository-command-not-found/
-- https://tecadmin.net/add-apt-repository-ubuntu/
 
 ### Web-based tool to search packages
 
