@@ -311,7 +311,7 @@ See `rpi` repository - `connect_ssh_scp.md` file
 ## Configure python program to run at boot
 
 Old school mechanism for starting python program, `svc.py` at boot:
-- add it to `/etc/rcc.local`
+- add it to `/etc/rc.local`
 - make sure `rc.local` runs at boot time
 - must be setup as root. 
 
